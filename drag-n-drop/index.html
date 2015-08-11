@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	
+	<head>
+		<meta charset = "UTF-8">
+		<title>Drag and Drop</title>
+	</head>
+	
+	<script type = "text/javascript">
+		
+		function doFirst()
+		{
+			mypic = document.getElementById("facepic");
+			mypic.addEventListener("dragstart", startDrag, false);
+			mypic.addEventListener("dragend", endDrag, false);
+			leftbox = document.getElementById("leftbox");
+			leftbox.addEventListener("dragenter", dragenter, false);
+			leftbox.addEventListener("dragleave", dragleave, false);
+			leftbox.addEventListener("dragover", function(e) { e.preventDefault(); }, false);
+			leftbox.addEventListener("drop", dropped, false);
+		}
+		
+		function startDrag(e)
+		{
+			var code = '<img src = "myface.png" width = "50%" />';
+			e.dataTransfer.setData("Text", code);
+		}
+		
+		function dropped(e)
+		{
+			e.preventDefault();
+			leftbox.innerHTML = e.dataTransfer.getData("Text");
+		}
+		
+		function endDrag(e)
+		{
+			pic = e.target;
+			pic.style.visibility = "hidden";
+			leftbox.style.border = "3px solid #555";
+		}
+		
+		function dragenter(e)
+		{
+			e.preventDefault();
+			leftbox.style.border = "3px dashed #000";
+				
+		}
+		
+		function dragleave(e)
+		{
+			e.preventDefault();
+			leftbox.style.border = "3px solid #555";
+		}
+		
+		window.addEventListener("load", doFirst, false);
+	
+	</script>
+	
+	<style>
+	
+		body
+		{
+			background-color: #222;
+			color: #CCC;	
+		}
+	
+		#leftbox, #rightbox
+		{
+			float: left;
+			width: 250px;
+			height: 250px;
+			margin: 5px;
+			border: 3px solid #555;	
+			padding: 20px;
+			background-color: #555;
+			border-radius: 10px;
+		}
+	
+	</style>
+	
+	<body>
+		
+		<section id = "leftbox">
+			I dare you to drag an image in me!
+		</section>
+		
+		<section id = "rightbox">
+			<img src = "myface.png" id = "facepic" width = "50%" />
+		</section>
+		
+	</body>
+
+</html>

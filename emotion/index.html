@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Emotion</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            body {
+                background-color: #111111;
+                color: #FFFFFF;
+                font-family: "Arial", sans-serif;
+                overflow: hidden;
+            }
+            .small {
+                font-size: 15vh;
+                line-height: 20vh;
+            }
+            .big {
+                font-size: 50vh;
+                line-height: 60vh;
+            }
+        </style>
+
+        <script>
+            "use strict";
+            (function() {
+                function getEmotion() {
+                    if(window.location.search != "") {
+                        return window.location.search.substring(1);
+                    } else {
+                        return null;
+                    }
+                }
+
+                // Examples:
+                // o.&&&e   ->  o.eeeeeeeeeee
+                // T&&&~T   ->  T~T~T~T~T~T~T
+                // x&&&D    ->  xDDDDDDDDDDDD
+                function generateEmotionString(emotion) {
+                    emotion = decodeURIComponent(emotion);
+                    var infiniteIndex = emotion.indexOf("&&&");
+                    if(infiniteIndex === -1) {
+                        return emotion;
+                    }
+                    var emotionString = emotion.substring(0, infiniteIndex);
+                    var repeatedString = emotion.substring(infiniteIndex + 3);
+                    for(var i = 0; i < 5000; i++) {
+                        emotionString += repeatedString;
+                    }
+                    return emotionString;
+                }
+
+                window.onload = function() {
+                    var emotion = getEmotion();
+                    if(emotion === null) {
+                        emotion = prompt("How are you feeling?\n\nPro Tip: Any characters after &&& will be repeated infinitely.\n\nExamples:\no.&&&e -> o.eeeeeeeeeee...\nT&&&~T -> T~T~T~T~T~T~T...\nx&&&D > xDDDDDDDDDDDD...");
+                        window.location.search = emotion;
+                    }
+
+                    var emotionString = generateEmotionString(emotion);
+
+                    document.title = emotionString.replace("&nbsp;", " ");
+
+                    var marquees = [
+                        document.createElement("marquee"),
+                        document.createElement("marquee"),
+                        document.createElement("marquee")
+                    ];
+
+                    for(var i = 0; i < marquees.length; i++) {
+                        marquees[i].setAttribute("scrolldelay", "10");
+                        marquees[i].setAttribute("truespeed", "");
+                        marquees[i].setAttribute("scrollamount", "10");
+                    }
+
+                    marquees[0].className = "small";
+                    marquees[0].setAttribute("direction", "right");
+
+                    marquees[1].className = "big";
+                    marquees[1].setAttribute("direction", "left");
+
+                    marquees[2].className = "small";
+                    marquees[2].setAttribute("direction", "right");
+
+                    for(var i = 0; i < marquees.length; i++) {
+                        marquees[i].innerHTML = emotionString;
+                        document.body.appendChild(marquees[i]);
+                    }
+                }
+            })();
+        </script>
+    </head>
+
+    <body>
+    </body>
+</html>

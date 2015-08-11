@@ -1,0 +1,156 @@
+*
+{
+	margin: 0;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+html, body
+{
+	width: 100%;
+	height: 100%;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	overflow: hidden;
+	
+	font-family: "Roboto", sans-serif;
+	font-weight: 300;
+}
+
+#circuitBoard
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+	#circuitBoard:focus
+	{
+		border: none;
+		outline: none;
+	}
+
+#contextualMenu
+{
+	display: none;
+	list-style-type: none;
+	background-color: #EEEEEE;
+	padding: 3px 0;
+	border: 1px solid black;
+	position: absolute;
+	z-index: 9101;
+}
+
+	#contextualMenu li
+	{
+		padding: 5px 20px;
+		cursor: pointer;
+	}
+	
+	#contextualMenu li:hover
+	{
+		background-color: #DDDDDD;
+	}
+	
+#resistanceSetter
+{
+	display: none;
+	background-color: #FFFFFF;
+	text-align: center;
+	padding: 10px;
+	border: 1px solid #000000;
+	border-radius: 5px;
+	
+	position: absolute;
+	z-index: 9051;
+}
+	
+	#rsInput
+	{
+		display: inline-block;
+		width: 150px;
+	}
+	
+	#rsTriangle
+	{
+		position: absolute;
+		z-index: 9053;
+		
+		left: calc(50% - 9px);
+				
+		width: 0;
+		height: 0;
+		border-left: 9px solid transparent;
+		border-right: 9px solid transparent;
+	}
+	
+	#rsTriangleBorder
+	{
+		position: absolute;
+		z-index: 9052;
+		
+		left: calc(50% - 10px);
+				
+		width: 0;
+		height: 0;
+		border-left: 10px solid transparent;
+		border-right: 10px solid transparent;
+	}
+	
+	#resistanceSetter .upTriangle
+	{
+		border-bottom: 9px solid #FFFFFF;
+		top: -9px;
+	}
+	
+	#resistanceSetter .upTriangleBorder
+	{
+		border-bottom: 10px solid black;
+		top: -10px;
+	}
+	
+	#resistanceSetter .downTriangle
+	{
+		border-top: 9px solid #FFFFFF;
+		bottom: -9px;
+	}
+	
+	#resistanceSetter .downTriangleBorder
+	{
+		border-top: 10px solid black;
+		bottom: -10px;
+	}
+
+#controls
+{
+	display: inline-block;
+	list-style-type: none;
+	text-align: right;
+	position: absolute;
+	z-index: 9001;
+	top: 10px;
+	left: 10px;
+}
+
+	#controls li
+	{
+		margin-bottom: 10px;
+	}
+
+		#seriesNumber, #parallelNumber
+		{
+			width: 3em;
+		}
+
+#instructions
+{
+	font-size: 1.2em;
+	position: absolute;
+	bottom: 10px;
+	left: 10px;
+}

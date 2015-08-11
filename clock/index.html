@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <title>JPL Clock</title>
+
+        <style>
+            body {
+                background-color: #111111;
+                color: #FFFFFF;
+                font-family: "Helvetica", "Arial", sans-serif;
+            }
+
+            #clock {
+                width: 90vmin;
+                height: 90vmin;
+                border: 1px solid #FFFFFF;
+                border-radius: 100%;
+                position: absolute;
+                top: calc(50% - 45vmin);
+                left: calc(50% - 45vmin);
+            }
+
+            .orientation {
+                width: 6px;
+                height: 6px;
+                border-radius: 100%;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                -ms-box-sizing: border-box;
+                -o-box-sizing: border-box;
+                box-sizing: border-box;
+                position: absolute;
+            }
+            .orientation:nth-of-type(1) {
+                background-color: #FFFFFF;
+                top: calc(50% - 45vmin + 15px);
+                left: calc(50% - 3px);
+            }
+            .orientation:nth-of-type(2) {
+                border: 1px solid #FFFFFF; 
+                top: calc(50% - 3px);
+                left: calc(50% + 45vmin - 15px);
+            }
+            .orientation:nth-of-type(3) {
+                border: 1px solid #FFFFFF;
+                top: calc(50% + 45vmin - 15px);
+                left: calc(50% - 3px);
+            }
+            .orientation:nth-of-type(4) {
+                border: 1px solid #FFFFFF;
+                top: calc(50% - 3px);
+                left: calc(50% - 45vmin + 15px);
+            }
+
+            #hour-hand, #minute-hand, #second-hand {
+                text-align: right;
+
+                position: absolute;
+                top: 50%;
+                left: 50%;
+
+                -webkit-transform: rotateZ(-90deg);
+                -moz-transform: rotateZ(-90deg);
+                -ms-transform: rotateZ(-90deg);
+                -o-transform: rotateZ(-90deg);
+                transform: rotateZ(-90deg);
+
+                -webkit-transition: -webkit-transform 0.5s;
+                -moz-transition: -moz-transform 0.5s;
+                -ms-transition: -ms-transform 0.5s;
+                -o-transition: -o-transform 0.5s;
+                transition: transform 0.5s;
+
+                -webkit-transform-origin: left center;
+                -moz-transform-origin: left center;
+                -ms-transform-origin: left center;
+                -o-transform-origin: left center;
+                transform-origin: left center;
+            }
+            #hour-hand {
+                font-weight: bold;
+                background-color: #FFFFFF;
+                width: 30vmin;
+                height: 3px;
+                z-index: 9001;
+            }
+            #minute-hand {
+                background-color: #FFFFFF;
+                width: 35vmin;
+                height: 1px;
+                z-index: 9002;
+            }
+            #second-hand {
+                background-color: #00C6FF;
+                width: 40vmin;
+                height: 0px; /* 1 */
+                line-height: 0;
+                z-index: 9003;
+            }
+                #second-hand span {
+                    display: inline-block;
+                    background-color: #00C6FF;
+                    width: 6px;
+                    height: 6px;
+                    border-radius: 100%;
+                    position: relative;
+                    top: -3px;
+                }
+        </style>
+
+        <script>
+            (function() {
+                var previousHours = 0;
+                var previousMinutes = 0;
+                var previousSeconds = 0;
+
+                var hoursModifier = 0;
+                var minutesModifier = 0;
+                var secondsModifier = 0;
+
+                window.onload = function () {
+                    setTimeout(function() {
+                        var hourHand = document.getElementById("hour-hand");
+                        var minuteHand = document.getElementById("minute-hand");
+                        var secondHand = document.getElementById("second-hand");
+
+                        updateHands(hourHand, minuteHand, secondHand);
+                        setInterval(function() {
+                            updateHands(hourHand, minuteHand, secondHand);
+                        }, 250);
+                    }, 1000);
+                }
+
+                function updateHands(hourHand, minuteHand, secondHand) {
+                    var date = new Date;
+                    date.setTime(Date.now());
+
+                    var hours = date.getHours();
+                    if(hours == 0 && previousHours != 0) {
+                        hoursModifier += 360;
+                    }
+                    var minutes = date.getMinutes();
+                    if(minutes == 0 && previousMinutes != 0) {
+                        minutesModifier += 360;
+                    }
+                    var seconds = date.getSeconds();
+                    if(seconds == 0 && previousSeconds != 0) {
+                        secondsModifier += 360;
+                    }
+
+                    previousHours = hours;
+                    previousMinutes = minutes;
+                    previousSeconds = seconds;
+
+                    hourHandTransform = "rotateZ(" + (hours * 30 - 90 + hoursModifier) + "deg)";
+                    minuteHandTransform = "rotateZ(" + (minutes * 6 - 90 + minutesModifier) + "deg)";
+                    secondHandTransform = "rotateZ(" + (seconds * 6 - 90 + secondsModifier) + "deg)";
+
+                    hourHand.style["-webkit-transform"] = hourHandTransform;
+                    hourHand.style["-moz-transform"] = hourHandTransform;
+                    hourHand.style["-ms-transform"] = hourHandTransform;
+                    hourHand.style["-o-transform"] = hourHandTransform;
+                    hourHand.style["transform"] = hourHandTransform;
+
+                    minuteHand.style["-webkit-transform"] = minuteHandTransform;
+                    minuteHand.style["-moz-transform"] = minuteHandTransform;
+                    minuteHand.style["-ms-transform"] = minuteHandTransform;
+                    minuteHand.style["-o-transform"] = minuteHandTransform;
+                    minuteHand.style["transform"] = minuteHandTransform;
+
+                    secondHand.style["-webkit-transform"] = secondHandTransform;
+                    secondHand.style["-moz-transform"] = secondHandTransform;
+                    secondHand.style["-ms-transform"] = secondHandTransform;
+                    secondHand.style["-o-transform"] = secondHandTransform;
+                    secondHand.style["transform"] = secondHandTransform;
+                } 
+            })();
+        </script>
+    </head>
+    <body>
+        <div id="clock">
+            <div class="orientation"></div>
+            <div class="orientation"></div>
+            <div class="orientation"></div>
+            <div class="orientation"></div>
+            <div id="hour-hand"></div>
+            <div id="minute-hand"></div>
+            <div id="second-hand"><span></span></div>
+        </div>
+    </body>
+</html>

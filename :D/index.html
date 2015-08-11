@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8" />
+        <title>:D</title>
+        <style>
+            @-webkit-keyframes rainbow {
+                0% {
+                    color: #FF0000;
+                }
+                16.666% {
+                    color: #FFFF00;
+                }
+                33.332% {
+                    color: #00FF00;
+                }
+                49.998% {
+                    color: #00FFFF;
+                }
+                66.664% {
+                    color: #0000FF;
+                }
+                83.33% {
+                    color: #FF00FF;
+                }
+                100% {
+                    color: #FF0000;
+                }
+            }
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            body {
+                background-color: #111111;
+                color: #FFFFFF;
+                font-family: "Arial";
+                font-size: 100vh;
+                line-height: 100vh;
+                overflow: hidden;
+            }
+            div {
+                text-align: center;
+                -webkit-animation: rainbow 2s linear infinite;
+                -moz-animation: rainbow 2s linear infinite;
+                -ms-animation: rainbow 2s linear infinite;
+                -o-animation: rainbow 2s linear infinite;
+                animation: rainbow 2s linear infinite;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div>:D</div>
+    </body>
+</html>

@@ -1,0 +1,6 @@
+name: ResistanceCalculator
+version: 1.0.0
+author: Justin P. Lubin
+description: A sample application
+dependencies:
+  browser: any

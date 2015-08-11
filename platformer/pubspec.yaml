@@ -1,0 +1,5 @@
+name: Platformer
+description: A sample application
+dependencies:
+  browser: any
+  firebase: any

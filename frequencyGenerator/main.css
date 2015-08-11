@@ -1,0 +1,73 @@
+* {
+	margin: 0;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+	*:focus {
+		border: none;
+		outline: none;
+	}
+
+html, body {
+	width: 100%;
+	height: 100%;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	overflow: hidden;
+	
+	font-family: "Roboto", sans-serif;
+	font-weight: 300;
+}
+
+#waveBoard {
+	z-index: -9001;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+	
+#controls {
+	width: 100%;
+	height: 50px;
+	margin: 10px;
+	position: absolute;
+	bottom: 0px;
+}
+
+#frequencySlider {
+	height: 100%;
+	position: absolute;
+	left: 170px;
+	right: 20px;
+}
+
+.controlButton {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	cursor: pointer;
+	display: inline-block;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	margin-right: 10px;
+	border: 1px solid black;
+	float: left;
+}
+
+#middleAButton {
+	width: 100px;
+}
+
+#playPause {
+	width: 50px;
+}
+
+/* 100, 50 */

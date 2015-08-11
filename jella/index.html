@@ -1,0 +1,75 @@
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Jella</title>
+        <link href='http://fonts.googleapis.com/css?family=Roboto:100,300,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="main.css">
+        <script type="text/javascript" src="lib/ace-min/ace.js"></script>
+        <script type="text/javascript" src="lib/svg.min.js"></script>
+        <script type="text/javascript" src="lib/svg.parser.min.js"></script>
+        <script type="text/javascript" src="lib/svg.import.min.js"></script>
+        <script type="text/javascript" src="lib/svg.draggable.min.js"></script>
+        <script type="text/javascript" src="lib/svg.filter.min.js"></script>
+        <script type="text/javascript" src="lib/dygraph-combined.js"></script>
+        <script type="text/javascript" src="main.js"></script>
+    </head>
+
+    <body>
+        <header>
+            <h1>Jella</h1>
+        </header>
+        <nav id="toolbar">
+            <ul id="tabs">
+                <li id="interface-tab">Interface</li>
+                <li id="model-tab">Model</li>
+            </ul>
+            <ul id="component-controls" class="controls">
+                <li id="stock-button" class="button">Stock</li>
+                <li id="flow-button" class="button">Flow</li>
+                <li id="converter-button" class="button">Converter</li>
+            </ul>
+            <ul class="controls">
+                <li>Precision = <input type="text" id="precision-input" value="2" /></li>
+                <li>&Delta; t = <input type="text" id="delta-time-input" value="1"/></li>
+                <li>t<sub>f</sub> = <input type="text" id="final-time-input" value="100"/></li>
+                <li id="run-button" class="button">Run &#9656;</li>
+            </ul>
+        </nav>
+
+        <div id="interface">
+            <table id="data-table">
+                <thead>
+                    <tr>
+                        <td>Time</td>
+                        <td><select id="observed-component-selector"></select></td>
+                </thead>
+                <tbody id="data-table-output">
+                </tbody>
+            </table>
+            <div id="timeplot-container-container">
+                <div id="timeplot-labels">
+                </div>
+                <div id="timeplot-container">
+                </div>
+            </div>
+        </div>
+
+        <div id="model">
+            <div id="workspace">
+            </div>
+
+            <div id="properties">
+                <h2 class="selected-component-name"></h2>
+                <label>
+                    <p>Name</p>
+                    <input type="text" id="component-name-input" class="selected-component-name" />
+                </label>
+                <label>
+                    <p>Equation</p>
+                    <div id="component-equation-input"></div>
+                </label>
+                <input type="button" id="change-properties" value="Submit" />
+            </div>
+        </div>
+    </body>
+</html>

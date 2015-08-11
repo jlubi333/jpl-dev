@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Resistance Calculator</title>
+		<link href='http://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="main.css" />
+		<script type="application/dart" src="main.dart"></script>
+		<script src="packages/browser/dart.js"></script>
+	</head>
+	<body>
+		<canvas id="circuitBoard"></canvas>
+		
+		<ul id="contextualMenu"></ul>
+		
+		<div id="resistanceSetter">
+			<label for="rsInput">&#8486;:</label>&nbsp;<!--
+			--><input type="number" min="1" id="rsInput" />&nbsp;<!--
+			--><input type="button" id="setResistance" value="Set" />
+			<div id="rsTriangleBorder" class="downTriangleBorder"></div>
+			<div id="rsTriangle" class="downTriangle"></div>
+		</div>
+		
+		<ul id="controls">
+			<li>
+				<label for="addSeriesNumber">Add series circuit of length:</label>
+				<input type="number" min="2" max="99" id="addSeriesNumber" />
+				<input type="button" id="addSeries" value="Add!" />
+			</li>
+			<li>
+				<label for="addParallelNumber">Add parallel circuit of length:</label>
+				<input type="number" min="2" max="99" id="addParallelNumber" />
+				<input type="button" id="addParallel" value="Add!" />
+			</li>
+		</ul>
+
+		<div id="instructions">
+			<p>Welcome to my resistance calculator! This is best viewed in Google Chrome. Double click to create a resistor. Right click and drag to link two circuits together in series or parallel. Double click any resistor to change the individual resistance. Drag a circuit to the trash can in the top right to delete it. Convient circuit creators have been supplied for you in the top left. Enjoy!</p>
+		</div>
+	</body>
+</html>

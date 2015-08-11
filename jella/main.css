@@ -1,0 +1,283 @@
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 300;
+}
+
+/* Header */
+
+header {
+    background-color: #111111;
+    color: #FFFFFF;
+    padding: 20px;
+    border-top: 3px solid #00C6FF;
+}
+
+h1 {
+    font-weight: 100;
+    letter-spacing: 5px;
+}
+
+/* Toolbar */
+
+#toolbar {
+    background-color: #333333;
+    color: #FFFFFF;
+    display: -webkit-flex;
+    display: flex;
+}
+
+#toolbar ul {
+    list-style-type: none;
+    display: -webkit-flex;
+    display: flex;
+}
+
+#toolbar input[type="text"] {
+    width: 50px;
+    background-color: #1D1F21;
+    color: #C5C8C6;
+    font-size: 16px;
+    border: 2px solid #25282C;
+    outline: none;
+    box-shadow: 1px 1px 3px 0 #000000;
+    -webkit-transition: background-color 0.1s;
+    -moz-transition: background-color 0.1s;
+    transition: background-color 0.1s;
+}
+
+#toolbar input[type="text"]:focus {
+    background-color: #25282C;
+}
+
+#tabs {
+    border-right: 1px dashed #000000;
+    margin-right: 10px;
+    padding: 0 10px;
+}
+
+#tabs li {
+    background-color: #222222;
+    border-radius: 10px 10px 0 0;
+    margin: 10px 10px 0 0;
+    padding: 5px 20px;
+    cursor: pointer;
+}
+
+#tabs li:hover {
+    background-color: #282828;
+}
+
+#tabs li.selected-tab {
+    background-color: #444444;
+}
+
+.controls:last-of-type {
+    margin-left: auto;
+}
+
+.controls li {
+    padding: 10px 20px;
+}
+
+.controls li.button:hover {
+    background-color: #555555;
+    cursor: pointer;
+}
+
+.controls li.selected-control {
+    background-color: #555555;
+    color: #00C6FF;
+    font-weight: 700;
+    box-shadow: 0 0 3px 0 #000000 inset;
+}
+
+#run-button {
+    color: #AAF200;
+    font-weight: 700;
+}
+
+/* Interface */
+
+#interface {
+    height: 100%;
+    background-color: #444444;
+    padding: 20px;
+}
+
+#timeplot-container-container {
+    display: inline-block;
+    margin-right: 10%;
+    float: right;
+    position: relative;
+}
+
+#timeplot-labels {
+    width: 100%;
+    background-color: #222222;
+    margin-bottom: 5px;
+    padding: 5px;
+    border: 1px solid #555555;
+    border-bottom-color: #00C6FF;
+    color: #FFFFFF;
+}
+
+#timeplot-container .dygraph-label {
+    color: #000000;
+}
+
+#data-table {
+    display: inline-table;
+    background-color: #555555;
+    color: #FFFFFF;
+    margin-left: 10%;
+    border: 1px solid #555555;
+    box-shadow: 0 0 3px 0 #000000 inset;
+    border-collapse: collapse;
+    float: left;
+}
+
+#data-table thead, #data-table tbody {
+    display: block;
+}
+
+#data-table tr td {
+    padding: 5px 10px;
+}
+
+#data-table tr td:nth-child(1) {
+    min-width: 75px;
+    border-right: 1px solid #333333;
+}
+
+#data-table tr td:nth-child(2) {
+    width: 150px;
+}
+
+#data-table thead {
+    background-color: #222222;
+    font-weight: 700;
+    text-align: center;
+    border-bottom: 1px solid #00C6FF;
+}
+
+#data-table tbody {
+    max-height: 300px;
+    overflow: auto;
+}
+
+#data-table tbody tr td {
+    border-bottom: 1px solid #333333;
+}
+
+#data-table tbody tr:last-of-type td {
+    border-bottom: none;
+}
+
+/* Model */
+
+/* Workspace */
+
+#workspace {
+    width: -webkit-calc(100% - 350px);
+    width: -moz-calc(100% - 430px);
+    width: calc(100% - 350px);
+    background-color: #444444;
+    float: left;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Properties */
+
+#properties {
+    width: 350px;
+    height: 100%;
+    background-color: #333333;
+    color: #FFFFFF;
+    padding: 20px;
+    box-shadow: 0 0 3px 0 #000000 inset;
+    float: left;
+}
+
+#properties h2 {
+    margin-bottom: 10px;
+}
+
+#properties label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#properties label p {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+#properties input[type="text"] {
+    display: block;
+    width: 100%;
+    background-color: #1D1F21;
+    color: #C5C8C6;
+    font-size: 16px;
+    padding: 5px;
+    border: 2px solid #25282C;
+    outline: none;
+    box-shadow: 1px 1px 3px 0 #000000;
+    -webkit-transition: background-color 0.1s;
+    -moz-transition: background-color 0.1s;
+    transition: background-color 0.1s;
+}
+
+#properties input[type="text"]:focus {
+    background-color: #25282C;
+}
+
+#properties input[type="button"] {
+    width: 100%;
+    height: 3em;
+    background-color: #1D1F21;
+    color: #C5C8C6;
+    border: 2px solid #25282C;
+    outline: none;
+    box-shadow: 1px 1px 3px 0 #000000;
+    -webkit-transition: background-color 0.1s;
+    -moz-transition: background-color 0.1s;
+    transition: background-color 0.1s;
+}
+
+#properties input[type="button"]:hover {
+    background-color: #25282C;
+    cursor: pointer;
+}
+
+#properties input[type="button"]:active {
+    box-shadow: 1px 1px 3px 0 #000000 inset;
+}
+
+#properties input[type="button"]::-moz-focus-inner {
+    border: 0;
+}
+
+#component-equation-input {
+    width: 100%;
+    height: 300px;
+    font-size: 14px;
+    box-shadow: 1px 1px 3px 0 #000000;
+}

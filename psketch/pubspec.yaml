@@ -1,0 +1,3 @@
+name: Calc
+dependencies:
+  browser: any

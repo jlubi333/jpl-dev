@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <title>JPL Clock: Version M</title>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700' rel='stylesheet' type='text/css'>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            html, body {
+                height: 100%;
+            }
+
+            body {
+                background-color: #111111;
+                font-family: "Open Sans Condensed", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+                font-weight: 700;
+                overflow: hidden;
+            }
+
+            .center-vertical {
+                display: table;
+            }
+            .center-vertical > * {
+                display: table-cell;
+                vertical-align: middle; 
+            }
+
+            #clock {
+                height: 100%;
+                width: 100%;
+                color: #FF0000;
+                text-align: center;
+                font-size: 40vmin;
+                opacity: 0; /* not ready to show until JS is ready */
+                -webkit-transition: color 0.5s, opacity 2s;
+                -moz-transition: color 0.5s, opacity 2s;
+                -ms-transition: color 0.5s, opacity 2s;
+                -o-transition: color 0.5s, opacity 2s;
+                transition: color 0.5s, opacity 2s;
+            }
+
+            .sep {
+                display: inline-block;
+                margin: 0 20px;
+            }
+        </style>
+
+        <script>
+            (function() {
+                var bright = true;
+
+                window.onload = function () {
+                    document.getElementById("clock").style.opacity = "1"; // we're ready to show
+
+                    var hourDigits = document.getElementById("hour-digits");
+                    var minuteDigits = document.getElementById("minute-digits");
+                    var secondDigits = document.getElementById("second-digits");
+
+                    updateDigits(hourDigits, minuteDigits, secondDigits, true);
+                    setInterval(function() {
+                        updateDigits(hourDigits, minuteDigits, secondDigits, false);
+                    }, 100);
+                }
+
+                window.onkeydown = function(event) {
+                    // Spacebar
+                    if(event.keyCode == 32) { 
+                        toggleBrightness();
+                    }
+                }
+
+                function toggleBrightness() {
+                    if(bright) {
+                        document.getElementById("clock").style.color = "#550000";
+                    } else {
+                        document.getElementById("clock").style.color = "#FF0000";
+                    }
+                    bright = !bright;
+                }
+
+                function pad(n) {
+                    if(n < 10) {
+                        return "0" + n;
+                    } else {
+                        return "" + n;
+                    }
+                }
+
+                function updateDigits(hourDigits, minuteDigits, secondDigits, first) {
+                    var date = new Date;
+                    date.setTime(Date.now());
+
+                    var hours = date.getHours();
+                    var minutes = date.getMinutes();
+                    var seconds = date.getSeconds();
+
+                    if(hours > 12) {
+                        hours -= 12;
+                    } else if(hours == 0) {
+                        hours = 12;
+                    }
+
+                    hourDigits.innerHTML = pad(hours);
+                    minuteDigits.innerHTML = pad(minutes);
+                    secondDigits.innerHTML = pad(seconds);
+                } 
+            })();
+        </script>
+    </head>
+    <body>
+        <div class="center-vertical" id="clock">
+            <div>
+                <span id="hour-digits"></span><span class="sep">:</span><span id="minute-digits"></span><span class="sep">:</span><span id="second-digits"></span>
+            </div>
+        </div>
+    </body>
+</html>

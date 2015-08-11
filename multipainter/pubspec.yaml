@@ -1,0 +1,4 @@
+name: resistancecalculator
+dependencies:
+  browser: any
+  firebase: any

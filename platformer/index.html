@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+	<head>
+		<meta charset="UTF-8" />
+		<title>JPL Platformer</title>
+		<link href='http://fonts.googleapis.com/css?family=Roboto:300,300italic,700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="jQueryLibs/spectrum.css" />
+		<link rel="stylesheet" type="text/css" href="main.css?v=2" />
+		<script src="jQueryLibs/jQuery.js"></script>
+		<script src="jQueryLibs/spectrum.js"></script>
+		<script src="https://cdn.firebase.com/v0/firebase.js"></script>
+		<script type="application/dart" src="main.dart"></script>
+		<script src="packages/browser/dart.js"></script>
+		<script src="packages/browser/interop.js"></script>
+	</head>
+	
+	<body>
+		<div id="preGameContainer">
+			<h1>JPL Platformer</h1>
+			<p id="summary">An eternal night has befallen the peaceful lands of Lubinia. Enemies and other dangers are abound, not to mention the horrid Preda. You will <em>not</em> want to stick around Lubinia for more than two minutes if you value your life. No Square has seen the mythical Preda and lived to tell the story. If you do manage to defeat the Preda, how long can you survive The Lag? There is only one way to find out. You must work together with your friends to save the day—but, watch out—your friends may soon become your enemies. Only one can vanquish the eternal night; will it be you?</p>
+			<div class="leftInput">
+				<label for="roomNameInput">Room Name</label>
+				<label>(or join one:
+					<select id="roomSelection" >
+						<option id="statusOption">Open Rooms</option>
+						<option id="loadingOption">Loading...</option>
+					</select>)
+				</label>
+				<br/>
+				<input type="text" id="roomNameInput" />
+				<p class="inputSubtitle">Pro Tip: make a room name private like this: %RoomName%</p>
+			</div><label class="rightInput">Username<br/><input type="text" id="usernameInput" /></label>
+			<label class="centerInput">Player Color<br /><input type="color" value="#FF0000" maxlength="7" id="colorInput" /></label>
+			<button id="startButton">Start Game!</button>
+			<p>This game is open-source! View the code at <a href="https://bitbucket.org/jlubi333/justin-p.-lubin/src/">my BitBucket</a>. The code is located at /dev/platformer/. Have fun!</p>
+			<div id="smallText">
+				<h3>The Small Text</h3>
+				<p>If this doesn't work, I am deeply sorry. This is still in pre-alpha, so expect pre-alpha quality. There have been confirmed reports of computer crashes due to this game. Just kidding. Kind of. Oh, by the way, this is best viewed in Google Chrome.</p>
+			</div>
+		</div>
+
+		<div id="gameContainer">
+			<aside id="controls">
+				<h2>Controls</h2>
+				<table>
+					<tr>
+						<td>A</td><td>Left</td>
+					</tr>
+					<tr>
+						<td>D</td><td>Right</td>
+					</tr>
+					<tr>
+						<td>Spacebar/W</td><td>Jump</td>
+					</tr>
+					<tr>
+						<td>Left Click</td><td>Shoot</td>
+					</tr>
+					<tr>
+						<td>Hold Right Click</td><td>Automatic Shoot</td>
+					</tr>
+					<tr>
+						<td>X</td><td>Toggle this dialog box</td>
+					</tr>
+				</table>
+				<h2>Room Name</h2>
+				<p id="roomName"></p>
+				<h2>Username</h2>
+				<p id="username"></p>
+			</aside>
+			<canvas id="game"></canvas>
+		</div>
+	</body>
+</html>

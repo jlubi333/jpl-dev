@@ -1,0 +1,158 @@
+* {
+	margin: 0;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+html, body {
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	background-color: #FFFFFF;
+	color: #000000;
+	font-family: "Roboto Condensed", sans-serif;
+	font-weight: 300;
+	font-size: 12px;
+	overflow: hidden;
+}
+
+h1, h2, h3 {
+	font-weight: 400;
+}
+
+h1 {
+	font-size: 3em;
+}
+
+h2 {
+	font-size: 1.5em;
+	text-align: center;
+	margin-bottom: 5px;
+}
+
+label {
+	display: block;
+	margin-bottom: 5px;
+}
+
+input[type=radio] {
+	margin-left: 5px;
+}
+
+#controls {
+	width: auto;
+	position: absolute;
+	left: 100px;
+}
+
+	#controls div {
+		text-align: right;
+		white-space: nowrap;
+	}
+
+#centeredHeader {
+	text-align: center;
+}
+
+#mainTitle {
+	display: inline-block;
+}
+
+#outputContainer {
+	display: inline-block;
+	width: 400px;
+	margin: 10px;
+	padding: 10px;
+	background-color: #111111;
+	color: #FFFFFF;
+	border: 1px solid #BEBEBE;
+	font-size: 2em;
+	font-weight: 400;
+	text-align: center;
+}
+
+#output.error {
+	color: #FF3300;
+}
+
+#output.success {
+	color: #AAF200;
+}
+
+.triangleElement {
+	position: absolute;
+	visibility: hidden;
+}
+
+#left {
+	float: left;
+}
+
+#right {
+	float: right;
+}
+
+.sidebar > div {
+	display: block;
+	width: 300px;
+	border: 1px solid black;
+	padding: 10px;
+	margin: 10px;
+}
+
+	.sidebar > div p {
+		text-align: justify;
+	}
+	
+		.sidebar > div p + p {
+			margin-top: 5px;
+		}
+	
+#rateSelectors {
+	text-align: center;
+}
+
+	#rateSelectors label {
+		display: inline-block;
+	}
+	
+		#rateSelectors label + label {
+			border-left: 1px solid black;
+			padding-left: 5px;
+		}
+
+#flipX, #flipY {
+	width: 50%;
+	padding: 10px;
+}
+
+#calculate {
+	width: 100%;
+	padding: 10px;
+}
+
+#shortcutKeys {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+	#shortcutKeys tr td {
+		border: 1px solid #000000;
+		padding: 5px;
+	}
+
+	#shortcutKeys tr td:nth-child(1) {
+		text-align: right;
+	}
+
+#triangle {
+	z-index: -9001;
+	position: absolute;
+	top: 0;
+	left: 100px;
+}

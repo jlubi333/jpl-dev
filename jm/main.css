@@ -1,0 +1,98 @@
+/* General */
+
+	*
+	{
+		margin: 0;
+		padding: 0;
+	}
+
+	*, *:before, *:after
+	{
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		-ms-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+
+	html, body
+	{
+		height: 100%;
+	}
+
+	a
+	{
+		color: inherit;
+		outline: none;
+	}
+
+/* Body */
+
+	body
+	{
+		font-family: "Roboto", sans-serif;
+		font-weight: 300;
+		font-size: 16px;
+		color: #000000;
+		background-color: #EEEEEE;
+	}
+
+/* Main Sidebar */
+
+	#mainSidebar
+	{
+		float: left;
+		background-image: -webkit-linear-gradient(top, #EEEEEE, #CCCCCC);
+		background-image: -moz-linear-gradient(top, #EEEEEE, #CCCCCC);
+		background-image: -o-linear-gradient(top, #EEEEEE, #CCCCCC);
+		background-image: -ms-linear-gradient(top, #EEEEEE, #CCCCCC);
+		background-image: linear-gradient(top, #EEEEEE, #CCCCCC);
+		width: 300px;
+		height: 100%;
+		padding: 20px;
+		-webkit-box-shadow: inset -1px 0px 7px 0px #555555;
+		box-shadow: inset -1px 0px 7px 0px #555555;
+	}
+
+		#mainSidebar header
+		{
+			margin-bottom: 10px;
+			text-align: center;
+		}
+
+			#mainSidebar header h1
+			{
+				font-weight: 300;
+			}
+
+		#mainSidebar form
+		{
+		}
+
+			#mainSidebar form label
+			{
+				display: block;
+			}
+
+			#mainSidebar form input[type="text"], #mainSidebar form input[type="password"]
+			{
+				display: block;
+				width: 100%;
+				margin-bottom: 10px;
+				padding: 10px;
+				border: none;
+				box-shadow: inset 0 0 5px 0px #555555;
+				transition: box-shadow 0.5s;
+			}
+
+				#mainSidebar form input[type="text"]:focus, #mainSidebar form input[type="password"]:focus
+				{
+					outline: none;
+					box-shadow: inset 0 0 10px 0 #555555;
+				}
+
+/* Map */
+
+	#mapCanvas
+	{
+		height: 100%;
+	}

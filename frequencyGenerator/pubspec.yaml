@@ -1,0 +1,4 @@
+name: FrequencyGenerator
+description: A frequency generator
+dependencies:
+  browser: any

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>JPL Time</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                -webkit-font-smoothing: antialiased;
+            }
+
+            body {
+                background-color: #111111;
+                color: #FFFFFF;
+                font-family: "Helvetica Neue", "Arial", sans-serif;
+            }
+
+            #stopwatch-section, #timer-section {
+                width: 50%;
+                padding: 30px;
+                float: left;
+            }
+
+            h1 {
+                font-weight: 300;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            .button-holder {
+                text-align: center;
+            }
+
+            button {
+                display: inline-block;
+                width: 25%;
+                padding: 10px 0;
+                margin: 0 2%; 
+            }
+
+            .output-holder {
+                font-family: "Courier New", monospace;
+                font-size: 7em;
+                text-align: center;
+                margin-top: 50px;
+            }
+        </style>
+        <script>
+            (function() {
+                var stopwatch;
+                var stopwatchRunning, stopwatchTime;
+                var stopwatchStart, stopwatchStop, stopwatchReset;
+                var stopwatchOutput;
+
+                window.onload = function() {
+                    stopwatchStart = document.getElementById("stopwatch-start");
+                    stopwatchStop = document.getElementById("stopwatch-stop");
+                    stopwatchReset = document.getElementById("stopwatch-reset");
+                    stopwatchOutput = document.getElementById("stopwatch-output");
+
+                    stopwatchStart.onclick = startStopwatch;
+                    stopwatchStop.onclick = stopStopwatch;
+                    stopwatchReset.onclick = resetStopwatch;
+
+                    resetStopwatch();
+                }
+
+                function startStopwatch() {
+                    if (stopwatchRunning) {
+                        return;
+                    }
+                    stopwatch = window.setInterval(function() {
+                        stopwatchTime += 0.01;
+                        stopwatchOutput.innerHTML = stopwatchTime.toFixed(2);
+                    }, 1);
+                    stopwatchRunning = true;
+                }
+
+                function stopStopwatch() {
+                    window.clearInterval(stopwatch);
+                    stopwatchRunning = false;
+                }
+
+                function resetStopwatch() {
+                    if (stopwatchRunning) {
+                        return;
+                    }
+                    stopStopwatch();
+                    stopwatchTime = 0;
+                    stopwatchOutput.innerHTML = "0.00";
+                }
+            })();
+        </script>
+    </head>
+
+    <body>
+        <div id="stopwatch-section">
+            <h1>Stopwatch</h1>
+            <div class="button-holder">
+                <button id="stopwatch-start">Start</button>
+                <button id="stopwatch-stop">Stop</button>
+                <button id="stopwatch-reset">Reset</button>
+            </div>
+            <p class="output-holder"><span id="stopwatch-output"></span>s</p>
+        </div>
+
+        <div id="timer-section">
+            <h1>Timer</h1>
+
+        </div>
+    </body>
+</html>

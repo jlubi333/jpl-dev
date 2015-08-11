@@ -1,0 +1,62 @@
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8" />
+        <title>time2smash4</title>
+        <link href='http://fonts.googleapis.com/css?family=Anonymous+Pro:700' rel='stylesheet' type='text/css'>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                -ms-box-sizing: border-box;
+                box-sizing: border-box;
+                -webkit-font-smoothing: antialiased;
+            }
+
+            html, body {
+                height: 100%;
+                overflow: hidden;
+            }
+
+            body {
+                display: table;
+                width: 100%;
+                font-family: "Anonymous Pro", monospace;
+                background-color: #111111;
+                color: #FFFFFF;
+            }
+
+            body > * {
+                display: table-cell;
+                vertical-align: middle;
+                text-align: center;
+            }
+
+            #countdown {
+                font-weight: 700;
+                letter-spacing: 75px;
+                font-size: 20vh;
+                margin-right: -75px;
+            }
+        </style>
+        <script type="text/javascript">
+        (function() {
+            "use strict";
+            window.onload = function() {
+                var countdown = document.getElementById("countdown");
+
+                window.setInterval(function() {
+                    var now = new Date();
+                    var release = new Date(2014, 9, 3, 0, 0, 0, 0);
+                    var difference = Math.round((release - now) / 1000);
+                    countdown.innerHTML = difference;
+                }, 100);
+            }
+        })();
+        </script>
+    </head>
+    <body>
+        <p><span id="countdown"></span></p>
+    </body>
+</html>

@@ -1,0 +1,78 @@
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Jicobot</title>
+        <link rel="stylesheet" href="main.css" />
+        <script src="main.js"></script>
+    </head>
+    <body>
+        <div id="main-wrapper">
+            <header>
+                <h1>Jicobot</h1>
+                <img src="settings.png" id="settings-button" />
+            </header>
+            <div id="settings-panel" class="hidden">
+                <h2>Custom Map Data</h2>
+                <textarea id="custom-map">25,25,1111111111111111111111111100000000000000000000000110000000000000000000000011000000000000000000000001100000000000000000000000110000000000000000000000011000000000000000000000001100000000000000000000000110000000000000000000000011000000000000000000000001100000000000000000000000110000000000000000000000011000000000000000000000001100000000000000000000000110000000000000000000000011000000000000000000000001100000000000000000000000110000000000000000000000011000000000000000000000001100000000000000000000000110000000000000000000000011000000000000000000000001100000000000000000000000110000000000000000000000011111111111111111111111111</textarea>
+                <button id="update-map">Update Map</button>
+                <div id="specification">
+Jico Language Specification
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Format:
+[program]        :: start::[state]\n[line]+
+[line]           :: [rule | comment]\n
+[rule]           :: [state]:[blocked string]->[direction]&amp;[state]
+[state]          :: {String}
+[blocked string] :: [indicator][indicator][indicator][indicator]
+[indicator]      :: 0 | 1 | *
+[direction]      :: N | E | S | W | X
+[comment]        :: # {String}
+
+Explanation:
+A program is made up of a start state and a series of lines, which can be a rule or a comment.
+The start state is the entry state for the program.
+Every line ends with a newline character ('\n').
+A rule is a single instruction in a Jico program.
+The state serves an identifier for a rule.
+A blocked string is a string that contains information about which surrounding tiles are blocked.
+A blocked string is ordered as follows: North, East, South, West
+An indicator can be:
+    0: empty tile
+    1: blocked tile
+    *: wildcard (any tile)
+A direction can be any of the following: north (N), east (E), south (S), west (W), or stationary (X).
+A comment is a line prefixed with a pound sign (#) and is ignored by the interpreter.
+
+The program interpreter will analyze all rules in a Jico program and find those that match.
+If more than one rule matches the current scenario, an OverhandledStateError will be thrown.
+The program will then execute the rule and update the board until the board is completed or
+the program is terminated by a user. If a move is impossible to make (i.e. a wall blocks the
+user), an ImpossibleMoveError will be thrown.
+
+Notes:
+- Arbitrary whitespace is permitted
+
+Examples:
+# State 0: if there is nothing to the north, go north and back into State 0.
+0 : 0*** -> N &amp; 0
+
+# State 0: if there is something to the north, go west and into State 1.
+0 : 1*** -> W &amp; 1
+
+# State 1: if there is nothing to the south, go south and back into State 1.
+1 : ***0 -> S &amp; 1
+
+# State 1: if there is something to the south, remain stationary and go into State 0.
+1 : ***1 -> X &amp; 0
+                </div>
+            </div>
+            <div id="board"></div>
+            <textarea id="code">start :: 0&#10;&#10;0 : 0*** -> N &amp; 0&#10;0 : 1*** -> W &amp; 1&#10;&#10;1 : **0* -> S &amp; 1&#10;1 : **1* -> X &amp; 0</textarea>
+            <div id="controls">
+                <button id="run-code">Run Code</button>
+                <button id="stop-code">Stop Code</button>
+            </div>
+        </div>
+    </body>
+</html>
