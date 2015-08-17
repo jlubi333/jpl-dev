@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<meta charset="UTF-8"/>
+		<title>Physicist's Sketchpad</title>
+		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300,400' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="main.css"/>
+		<script type="application/dart" src="main.dart"></script>
+		<script src="packages/browser/dart.js"></script>
+	</head>
+	<body>	
+		<div id="controls">
+			<div id="xs" class="triangleElement">
+				<label>x:&nbsp;<input type="number" id="x"/></label>
+				<label>dx/dt:&nbsp;<input type="number" id="d___x"/></label>
+			</div>
+			<div id="ys" class="triangleElement">
+				<label>y:&nbsp;<input type="number" id="y"/></label>
+				<label>dy/dt:&nbsp;<input type="number" id="d___y"/></label>
+			</div>
+			<div id="zs" class="triangleElement">
+				<label>z:&nbsp;<input type="number" id="z"/></label>
+				<label>dz/dt:&nbsp;<input type="number" id="d___z"/></label>
+			</div>
+			<div id="thetas" class="triangleElement">
+				<label>θ:&nbsp;<input type="number" id="theta"/></label>
+				<label>dθ/dt:&nbsp;<input type="number" id="d___theta"/></label>
+			</div>
+		</div>
+		
+		<aside id="left" class="sidebar">
+			<div>
+					<h2>Controls</h2>
+					<div id="rateSelectors">
+						<label><span>dx/dt</span><input type="radio" name="rs" value="d___x" id="rad_d___x"/></label>
+						<label><span>dy/dt</span><input type="radio" name="rs" value="d___y" id="rad_d___y"/></label>
+						<label><span>dz/dt</span><input type="radio" name="rs" value="d___z" id="rad_d___z"/></label>
+						<label><span>dθ/dt</span><input type="radio" name="rs" value="d___theta" id="rad_d___theta"/></label>
+					</div>
+					
+					<button id="flipX">Flip X</button><button id="flipY">Flip Y</button>
+					<br/>
+					<button id="calculate">Calculate!</button>
+			</div>
+				<div>
+					<h2>How to Use</h2>
+					<p>This is a related rates calculator. Enter all known information into the triangle on the right. If a piece of information is unknown, do not enter anything. After inputting all known data, select the rate that you wish to find by choosing it from the control panel in the top left. Then click "Calculate!"</p>
+					<p>The "Flip X" and "Flip Y" buttons are for your convenience. They may help you visualize a problem, but they do not have any affect on the output given.</p>
+					<p>This is best viewed in Google Chrome in fullscreen.</p>
+				</div>
+				<div>
+					<h2>Shortcut Keys</h2>
+					
+					<table id="shortcutKeys">
+						<tr>
+							<td>[Tab]</td><td>next input</td>
+						</tr>
+						<tr>
+							<td>[Shift+Tab]</td><td>previous input</td>
+						</tr>
+						<tr>
+							<td>[x/y/z/t]</td><td>select unknown rate</td>
+						</tr>
+						<tr>
+							<td>[m/n]</td><td>flip x/y</td>
+						</tr>
+					</table>
+				</div>
+				<div>
+					<h2>About</h2>
+					<p>Physicist's Sketchpad&#8482 was made by Justin Philip Lubin during December of 2013 and January of 2014. It is his AP Calculus's midterm project.</p>
+				</div>
+		</aside>
+		
+		<div id="centeredHeader">
+			<div id="mainTitle">
+				<h1>Physicist&#8217;s Sketchpad</h1>
+				<p>Made by Justin P. Lubin</p>
+			</div>
+			<br/>
+			<div id="outputContainer">
+				<p>Answer: <span id="output" class="error">Please input some data!</span></p>
+			</div>
+		</div>
+		
+		<canvas id="triangle"></canvas>
+	</body>
+</html>
