@@ -1,0 +1,58 @@
+<!DOCTYPE>
+
+<html lang="en-US">
+	<head>
+		<meta charset="UTF-8" />
+		<title>MultiPainter</title>
+		<link href="main.css" rel="stylesheet" type="text/css" />
+		<script src="https://cdn.firebase.com/v0/firebase.js"></script>
+		<script type="application/dart" src="main.dart"></script>
+		<script src="packages/browser/dart.js"></script>
+		<script src="packages/browser/interop.js"></script>
+	</head>
+
+	<body>
+		<div id="toolsPanel">
+			<h1 id="mainTitle">MultiPainter</h1>
+			<h2>Current Room</h2>
+			<p id="roomName"></p>
+			<h2>Color</h2>
+			<div>
+				<input type="color" id="colorSelector" value="#000000"/>
+			</div>
+			<h2>Controls</h2>
+			<div id="controls">
+				<div id="plus">+</div>
+				<div id="minus">-</div>
+				<div id="fill">X</div>
+				<br />
+				<p id="brushInfo"></p>
+			</div>
+			<h2 id="save"><a href="#" target="_blank">Save!</a></h2>
+			<h2>Shortcut Keys</h2>
+			<table id="shortcutTable">
+				<tr>
+					<td>C</td><td>Select Color</td>
+				</tr>
+				<tr>
+					<td>]</td><td>Increase Brush Size</td>
+				</tr>
+				<tr>
+					<td>[</td><td>Decrease Brush Size</td>
+				</tr>
+				<tr>
+					<td>X</td><td>Fill Artboard With Color</td>
+				</tr>
+				<tr>
+					<td>S</td><td>Save</td>
+				</tr>
+				<tr>
+					<td>M</td><td>Toggle This Menu</td>
+				</tr>
+			</table>
+		</div>
+
+		<div id="brush"></div>
+		<canvas id="artboard"></canvas>
+	</body>
+</html>

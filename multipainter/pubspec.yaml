@@ -1,4 +1,4 @@
-name: resistancecalculator
+name: MultiPainter
 dependencies:
   browser: any
   firebase: any
