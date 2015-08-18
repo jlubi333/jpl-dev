@@ -1,0 +1,186 @@
+/* --- Animate Background --- */
+
+    @-webkit-keyframes animate-background {
+        0% {
+            background-position: 0 0;
+        }
+        100% {
+            background-position: 360px 0;
+        }
+    }
+    @-moz-keyframes animate-background {
+        0% {
+            background-position: 0 0;
+        }
+        100% {
+            background-position: 360px 0;
+        }
+    }
+    @-ms-keyframes animate-background {
+        0% {
+            background-position: 0 0;
+        }
+        100% {
+            background-position: 360px 0;
+        }
+    }
+    @-o-keyframes animate-background {
+        0% {
+            background-position: 0 0;
+        }
+        100% {
+            background-position: 360px 0;
+        }
+    }
+    @keyframes animate-background {
+        0% {
+            background-position: 0 0;
+        }
+        100% {
+            background-position: 360px 0;
+        }
+    }
+
+/* --- Rainbow Background --- */
+
+    @-webkit-keyframes rainbow {
+        0% {
+            background-color: #FF0000;
+        }
+        16.666% {
+            background-color: #FFFF00;
+        }
+        33.332% {
+            background-color: #00FF00;
+        }
+        49.998% {
+            background-color: #00FFFF;
+        }
+        66.664% {
+            background-color: #0000FF;
+        }
+        83.33% {
+            background-color: #FF00FF;
+        }
+        100% {
+            background-color: #FF0000;
+        }
+    }
+    @-moz-keyframes rainbow {
+        0% {
+            background-color: #FF0000;
+        }
+        16.666% {
+            background-color: #FFFF00;
+        }
+        33.332% {
+            background-color: #00FF00;
+        }
+        49.998% {
+            background-color: #00FFFF;
+        }
+        66.664% {
+            background-color: #0000FF;
+        }
+        83.33% {
+            background-color: #FF00FF;
+        }
+        100% {
+            background-color: #FF0000;
+        }
+    }
+    @-ms-keyframes rainbow {
+        0% {
+            background-color: #FF0000;
+        }
+        16.666% {
+            background-color: #FFFF00;
+        }
+        33.332% {
+            background-color: #00FF00;
+        }
+        49.998% {
+            background-color: #00FFFF;
+        }
+        66.664% {
+            background-color: #0000FF;
+        }
+        83.33% {
+            background-color: #FF00FF;
+        }
+        100% {
+            background-color: #FF0000;
+        }
+    }
+    @-o-keyframes rainbow {
+        0% {
+            background-color: #FF0000;
+        }
+        16.666% {
+            background-color: #FFFF00;
+        }
+        33.332% {
+            background-color: #00FF00;
+        }
+        49.998% {
+            background-color: #00FFFF;
+        }
+        66.664% {
+            background-color: #0000FF;
+        }
+        83.33% {
+            background-color: #FF00FF;
+        }
+        100% {
+            background-color: #FF0000;
+        }
+    }
+    @keyframes rainbow {
+        0% {
+            background-color: #FF0000;
+        }
+        16.666% {
+            background-color: #FFFF00;
+        }
+        33.332% {
+            background-color: #00FF00;
+        }
+        49.998% {
+            background-color: #00FFFF;
+        }
+        66.664% {
+            background-color: #0000FF;
+        }
+        83.33% {
+            background-color: #FF00FF;
+        }
+        100% {
+            background-color: #FF0000;
+        }
+    }
+
+/* --- Normal CSS --- */
+
+    html, body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    #rainbow {
+        animation: rainbow 2s linear infinite;
+    }
+
+    div {
+        width: 100%;
+        height: 100%;
+
+        background-image: url("deal-with-it.png");
+
+        -webkit-animation: animate-background 1.5s linear infinite;
+        -moz-animation: animate-background 1.5s linear infinite;
+        -ms-animation: animate-background 1.5s linear infinite;
+        -o-animation: animate-background 1.5s linear infinite;
+        animation: animate-background 1.5s linear infinite;
+    }
