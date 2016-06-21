@@ -1,0 +1,159 @@
+* {
+	margin: 0;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+html, body {
+	width: 100%;
+	height: 100%;
+	font-family: "Roboto", sans-serif;
+	font-weight: 300;
+}
+
+#preGameContainer {
+	width: 75%;
+	margin: auto;
+	text-align: center;
+}
+
+	#preGameContainer h1 {
+		font-size: 4em;
+	}
+	
+	#summary {
+		text-align: justify;
+	}
+
+	.leftInput, .rightInput, .centerInput {
+		display: inline-block;
+		margin-top: 20px;
+		font-size: 1.3em;
+	}
+
+		.leftInput, .rightInput {
+			width: -webkit-calc(50% - 10px);
+			width: -moz-calc(50% - 10px);
+			width: -ms-calc(50% - 10px);
+			width: -o-calc(50% - 10px);
+			width: calc(50% - 10px);
+		}
+
+		.leftInput {
+			float: left;
+		}
+
+		.rightInput {
+			float: right;
+		}
+
+		.centerInput {
+			width: 100%;
+		}
+
+		#preGameContainer input[type="text"], #preGameContainer input[type="color"] {
+			width: 100%;
+			text-align: center;
+			border: none;
+			outline: none;
+			box-shadow: inset 0 0 5px 0 #555555;
+			-webkit-transition: box-shadow 0.3s;
+			-moz-transition: box-shadow 0.3s;
+			-ms-transition: box-shadow 0.3s;
+			-o-transition: box-shadow 0.3s;
+			transition: box-shadow 0.3s;
+		}
+
+			#preGameContainer input[type="text"]:focus, #preGameContainer input[type="color"]:focus {
+				border: none;
+				outline: none;
+				box-shadow: inset 0 0 5px 0 #000000;
+			}
+
+		#preGameContainer input[type="text"] {
+			font-family: inherit;
+			font-size: 2em;
+			padding: 20px;
+
+		}
+
+		#preGameContainer label input[type="color"] {
+			height: 50px;
+			padding: 10px;
+		}
+
+	#startButton {
+		width: 100%;
+		font-size: 3em;
+		margin-top: 20px;
+		margin-bottom: 10px;
+		padding: 20px;
+		font-family: inherit;
+		font-weight: 700;
+	}
+
+	.inputSubtitle {
+		font-size: 0.7em;
+		font-style: italic;
+	}
+
+	#smallText {
+		margin: 10px 0;
+		font-size: 0.7em;
+	}
+
+#gameContainer {
+	display: none; /* By default, changed in the Dart code */
+}
+
+	#controls {
+		pointer-events: none;
+		background-color: #FFFFFF;
+		color: #000000;
+		border: 1px solid #000000;
+		padding: 10px 20px 20px 20px;
+		position: absolute;
+		z-index: 9001;
+		top: 10px;
+		right: 10px;
+	}
+
+		#controls h2 {
+			margin-top: 10px;
+		}
+
+		#controls table {
+			width: 100%;
+			border-collapse: collapse;
+			margin-bottom: 10px;
+		}
+
+			#controls table td {
+				padding: 5px;
+				border: 1px solid #000000;
+			}
+
+				#controls table td:nth-child(1) {
+					text-align: right;
+				}
+
+	#game {
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		-o-user-select: none;
+		user-select: none;
+		cursor: none;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
+		#game:focus {
+			border: none;
+			outline: none;
+		}
